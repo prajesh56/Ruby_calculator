@@ -51,7 +51,12 @@ begin #this points start of operation in calcultor
     puts "Choose the operation you want to perform (1-6):"
     choice = gets.to_i
     selected = operation[choice-1]
-    puts "#{selected} operation is selected."
+    if selected == nil
+        puts "Error you need to enter valid operation"
+        break
+    else
+        puts "#{selected} operation is selected."
+    end
     case choice
         when 1..4
             puts "Enter two numbers"
@@ -60,10 +65,9 @@ begin #this points start of operation in calcultor
         when 5..6
             puts "Enter a numbers"
             num1 = gets.to_f
-        else 
-            puts "Error you need to enter valid operation"
-            break
     end
+
+#object creation
     object = Calculator.new(num1, num2)
     case choice
         when 1
