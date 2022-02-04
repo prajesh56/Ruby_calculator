@@ -25,7 +25,7 @@ class Calculator
     def operation_again
         puts "Do you want to perform more operations(Y/N):"
         want = gets[0].downcase
-        puts want
+        
         case want
         when 'y'
             return true
