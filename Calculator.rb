@@ -49,8 +49,10 @@ begin #this points start of operation in calcultor
 
 #choosing operation in calculator
     puts "Choose the operation you want to perform (1-6):"
-    operation = gets.to_i
-    case operation
+    choice = gets.to_i
+    selected = operation[choice-1]
+    puts "#{selected} operation is selected."
+    case choice
         when 1..4
             puts "Enter two numbers"
             num1 = gets.to_f
@@ -63,7 +65,7 @@ begin #this points start of operation in calcultor
             break
     end
     object = Calculator.new(num1, num2)
-    case operation
+    case choice
         when 1
             puts"The addition of #{num1} and #{num2} is #{object.Addition} "
         when 2
