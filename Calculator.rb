@@ -13,7 +13,7 @@ class Calculator
         @a * @b
     end
     def Division
-        (@a / @b).to_f
+        @a/ @b
     end
     def Square
         @a**2
@@ -53,11 +53,11 @@ begin #this points start of operation in calcultor
     case operation
         when 1..4
             puts "Enter two numbers"
-            num1 = gets.to_i
-            num2 = gets.to_i
+            num1 = gets.to_f
+            num2 = gets.to_f
         when 5..6
             puts "Enter a numbers"
-            num1 = gets.to_i
+            num1 = gets.to_f
         else 
             puts "Error you need to enter valid operation"
             break
