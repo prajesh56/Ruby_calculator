@@ -35,19 +35,20 @@ class Calculator
       
     case want
   	  when 'y'
-        return true
-      when 'n'
-    	  puts "Bye Bye"
         return false
+      when 'n'
+    	  puts "Bye bye"
+        return true
       else
         puts "Sorry, invalid choice, Bye Bye"
+				return true
       end
   end
 
 end
 
 #Calculator
-begin #this points start of operation in calcultor
+loop do #this points start of operation in calcultor
 #displaying operation that can be done in calculator
   operation = %w(Addition Subtraction Multiplication Division Square Cube)
   puts "\nYou can perform following operation in this calculator"
@@ -57,15 +58,15 @@ begin #this points start of operation in calcultor
 
 #choosing operation in calculator
   puts "Choose the operation you want to perform (1-6):"
-  choice = gets.to_i
-  selected = operation[choice-1]
+  @choice = gets.to_i
+  selected = operation[@choice-1]
   if selected == nil
     puts "Error you need to enter valid operation"
     break
   else
     puts "#{selected} operation is selected."
   end
-  case choice
+  case @choice
     when 1..4
       puts "Enter two numbers"
       num1 = gets.to_f
@@ -77,7 +78,7 @@ begin #this points start of operation in calcultor
 
 	#object creation
   object = Calculator.new(num1, num2)
-  case choice
+  case @choice
     when 1
       puts"The addition of #{num1} and #{num2} is #{object.addition} "
     when 2
@@ -93,5 +94,6 @@ begin #this points start of operation in calcultor
     else
       break
   end  
-end while object.operation_again #this is end point of calculator
+	break if object.operation_again #this is end point of calculator
+end  
 
